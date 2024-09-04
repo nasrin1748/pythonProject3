@@ -1,0 +1,459 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Late Shadow</title>
+
+    <!-- Recommended meta tags -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">
+
+    <!-- PyScript CSS -->
+    <link rel="stylesheet" href="https://pyscript.net/releases/2024.8.2/core.css">
+
+    <!-- This script tag bootstraps PyScript -->
+    <script type="module" src="https://pyscript.net/releases/2024.8.2/core.js"></script>
+    <style>
+   .tab2 {
+  overflow: hidden;
+  border: 1px solid #ccc;
+  background-color: PINK;
+}
+
+/* Style the buttons inside the tab */
+.tab2 button {
+  background-color: inherit;
+  float: left;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  padding: 14px 16px;
+  transition: 0.3s;
+  font-size: 14px;
+}
+
+/* Change background color of buttons on hover */
+.tab2 button:hover {
+  background-color: #ddd;
+}
+
+/* Create an active/current tablink class */
+.tab2 button.active {
+  background-color: #ccc;
+}
+
+/* Style the tab content */
+.tab2content {
+  display: none;
+  padding: 6px 12px;
+  border: 1px solid #ccc;
+  border-top: none;
+}
+  p {
+        float:left;
+        width: 645px;
+        margin-left: auto;
+        margin-right: auto;
+        font-size: 13px;
+    }
+* {box-sizing: border-box}
+body {font-family: "Lato", sans-serif;}
+
+/* Style the tab */
+.tab {
+  float: left;
+  border: 1px solid #ccc;
+  background-color: white;
+  width: 20%;
+}
+.tab1 {
+  float: right;
+  border: 1px solid #ccc;
+  background-color: white;
+  width: 20%;
+  height: 900px;
+}
+/* Style the buttons inside the tab */
+.tab button {
+  display: block;
+  background-color: inherit;
+  color: black;
+  padding: 10px 16px;
+  width: 100%;
+  border: none;
+  outline: none;
+  text-align: left;
+  cursor: pointer;
+  transition: 0.3s;
+  font-size: 13px;
+}
+
+/* Change background color of buttons on hover */
+.tab button:hover {
+  background-color: #ddd;
+}
+
+/* Create an active/current "tab button" class */
+.tab button.active {
+  background-color: #ccc;
+}
+
+/* Style the tab content */
+.tabcontent {
+  float: left;
+  width: 70%;
+  height: 300px;
+}
+.footer {
+   position: fixed;
+   left: 0;
+   bottom: 0;
+   width: 100%;
+   background-color: black;
+   color: white;
+   text-align: right;
+}
+
+</style>
+ <div class="tab2">
+<button><b>@NASRIN PATHAN</b></button>
+<button id="home" onclick='home'>HOME</button>
+<button id="projects" onclick='projects'>PROJECTS</button>
+<button id="portfolio" onclick='portfolio'>PORTFOLIO</button>
+<button id="blog" onclick='blog'>BLOG</button>
+</div>
+ <div class="tab1">
+     <br/>
+     <br/>
+     <br/>
+<iframe src="https://www.youtube.com/embed/yplvt8rrlfw"  width="200" credentialless></iframe>
+<iframe src="https://www.youtube.com/embed/3yTaGYbyfqs"  width="200" credentialless></iframe>
+<iframe src="https://www.youtube.com/embed/yahwSfb2quk" width="200" credentialless></iframe>
+ </div>
+<div class="footer">
+    <p>Made with pyscript</p>
+</div>
+    <div class="tab" style= "height: 1000px; overflow-y: scroll;scrollbar-width: none;">
+ <br/>
+<h2> PyScript Tutorial</h2>
+<button id="run" onclick='fun'>Introduction</button>
+<button id="ex1" onclick='click_handler'>Display Function</button>
+<button id="ex2" onclick='Example2'>User Inputs</button>
+<button id="ex3" onclick='Example3'>User Inputs1</button>
+<button id="ex4" onclick='Example4'>Calling Function</button>
+<button id="ex5" onclick='Example5'>@when decorator</button>
+<button id="ex6" onclick='Example6'>Addition Example</button>
+<button id="ex7" onclick='Example7'>Addition Example1</button>
+<button id="ex8" onclick='Example8'>Pizza Booking</button>
+<button id="ex9" onclick='Example9'>Text file as CSV</button>
+<button id="ex10" onclick='Example10'>Importing main</button>
+<button id="ex11" onclick='Example11'>Rendered HTML to plaintext</button>
+<button id="ex12" onclick='Example12'>Rendered HTML table to dataframe</button>
+<button id="ex13" onclick='Example13'>Incrementing value by 1</button>
+<button id="ex14" onclick='Example14'>Javascript and python together</button>
+<button id="ex15" onclick='Example15'>html,css and javascript live code editor.</button>
+<button id="ex16" onclick='Example16'>Example for function with parameters</button>
+<button id="ex17" onclick='Example17'>Change terminal color</button>
+<button id="ex18" onclick='Example18'>Change terminal font</button>
+<button id="ex19" onclick='Example19'>Writing and reading a file.</button>
+<button id="ex20" onclick='Example20'>python live code editor</button>
+</div>
+    <p id=demo style= "height: 1000px; overflow-y: scroll;scrollbar-width: none;">
+    <script type="py" id="py-terminal" config="./pyscript.toml">
+     from pyscript import display,HTML,when,document
+display(HTML("""<br/><h1>Introduction</h1><p>PyScript allows you to create rich Python applications in the browser using HTML and Python code.<br/>The easiest way to get a PyScript development environment and hosting, is to use <a href="https://pyscript.com">pyscript.com</a>
+in your browser.</p>
+All PyScript applications need three things:
+<li>An index.html file that is served to your browser.</li>
+<li>pyscript.toml file where you specify your packages and files(default name is pyscript.toml but can be .toml file with any name)</li>
+<li>Python code (usually in a file called something like main.py) that defines how your application works.</li>
+Alternately just use index.html where inside py-config tag specify your packages and files,write your Python code inside script tag.
+Inside script tag if you specify your src="./main.py" config="./pyscript.toml" means you are going to write your python code in main.py and mention packages,files in pyscript.toml alternately just remove the src="./main.py" and write your code within script tags or just remove config="./pyscript.toml" when you don't need any packages for your code.
+Always follow the following order for ./pyscript.toml .
+<pre style="background-color:#f1f1f1;">
+<code onmousedown="return false" onselectstart="return false">
+"packages" = ["package-name"]
+[files]
+"example.txt" = "example.txt"
+</code>
+</pre>
+<h5>Simple example showing index.html,main.py,pyscript.toml specifying packages and files</h5>
+<h6>index.html</h6>
+<pre style="background-color:#f1f1f1;">
+<code onmousedown="return false" onselectstart="return false">
+&lt;!DOCTYPE html&gt;
+&lt;html lang="en"&gt;
+&lt;head&gt;
+&lt;title&gt;Yellow Cloud&lt;/title&gt;
+    &lt;meta charset="UTF-8"&gt;
+    &lt;meta name="viewport" content="width=device-width,initial-scale=1.0"&gt;
+    &lt;link rel="stylesheet" href="https://pyscript.net/releases/2024.7.1/core.css"&gt;
+    &lt;script type="module" src="https://pyscript.net/releases/2024.7.1/core.js"&gt;&lt;/script&gt;
+&lt;/head&gt;
+&lt;body&gt;
+  &lt;script type="py" src="./main.py" config="./pyscript.toml" &gt;&lt;/script&gt;
+&lt;/body&gt;
+&lt;/html&gt;
+</code>
+</pre>
+<h6>main.py</h6>
+<pre style="background-color:#f1f1f1;">
+<code onmousedown="return false" onselectstart="return false">
+import numpy as np
+from pyscript import display
+from pyodide.ffi import to_js, create_once_callable
+x = np.arange(15, dtype=np.int64).reshape(3, 5)
+x[1:, ::2] = -99
+display(x)
+</code>
+</pre>
+<h6>pyscript.toml</h6>
+<pre style="background-color:#f1f1f1;">
+<code onmousedown="return false" onselectstart="return false">
+name = "Yellow Cloud"
+packages=["numpy"]
+</code>
+</pre>
+<h5>Simple example showing index.html specifying packages and files</h5>
+<h6>index.html</h6>
+<pre style="background-color:#f1f1f1;">
+<code onmousedown="return false" onselectstart="return false">
+&lt;!DOCTYPE html&gt;
+&lt;html lang="en"&gt;
+&lt;head&gt;
+&lt;title&gt;Yellow Cloud&lt;/title&gt;
+    &lt;meta charset="UTF-8"&gt;
+    &lt;meta name="viewport" content="width=device-width,initial-scale=1.0"&gt;
+    &lt;link rel="stylesheet" href="https://pyscript.net/releases/2024.7.1/core.css"&gt;
+    &lt;script type="module" src="https://pyscript.net/releases/2024.7.1/core.js"&gt;&lt;/script&gt;
+&lt;/head&gt;
+&lt;body&gt;
+    &lt;py-config&gt;
+        "packages" = ["numpy"]
+    &lt;/py-config&gt;
+&lt;script type="py" &gt;
+     import numpy as np
+     from pyscript import display
+     x = np.arange(15, dtype=np.int64).reshape(3, 5)
+     x[1:, ::2] = -99
+     display(x)
+&lt;/script&gt;
+&lt;/body&gt;
+&lt;/html&gt;
+</code>
+</pre>
+"""),append=False)
+@when("click", "#home")
+def home(event):
+    display(HTML("""<h1>About</h1><br/><p>Welcome to personal website of Nasrin,Python enthusiast and Pyscript hacker. I like working on my own projects.Three of my major projects are 'Scrape based prediction of actors' , 'Alexa can play word building' and 'Web development in Jupiter Notebook'. Scrape based prediction of actors is inspired from the project facial recognition application.Facial recoginition was just to predict faces. I wanted to automate the process from searching the actors names to downloading the images and predicting them.Alexa can play word building project was inspired from a toy which my son used to play.I couldn't find the unusual batteries for his toy but wrote a code for him to play.Web Development in jupyter notebook happened because i wanted to try and end to end project.Having less knowledge on coding was trying my project on jupyter notebook and web Development in jupyter notebook happened.</p>"""),append=False)
+@when("click", "#projects")
+def projects(event):
+    display(HTML("""<h1>projects</h1>"""),append=False)
+@when("click","#portfolio")
+def portfolio(event):
+    display(HTML("""<p>Here's my journey from Web Development in Jupyter notebook to Py-Script.
+
+Pyscript uses pyodide for the package installation.Pyscripts DOM was authorized with pyodide but the terminal wasn't authorized with pyodide.When i got python to browser my github was authorized with the pyodide which blocks python on browser by any other means than Pyodide.
+
+What works here works there?
+
+Got python to tabs which was actual web development in jupyter notebook.Tab being a widget rule applies only widgets work inside a widget.Wrote few codes "https://nasrin1748.github.io/jupyter_tabextension/" with ref @jupyter Community.
+
+<b>Buckaroo</b>
+
+Worked under @paddymul for writing issues for Buckaroo.
+
+<b>Py-Script</b>
+
+Pip packages work in local system but pyodide blocks the deployment and Pyodide runs on browser so all packages don't work on Browser including audios,videos and .exe packages.Few of my Py-script contributions https://nasrin1748.github.io/pyscript_dataframe/ @pyscript DISCORD ref</p>"""),append=False)
+@when("click", "#blog")
+def blog(event):
+    display(HTML("""<h1>👋 Hi, I’m @nasrin pathan.<br/>
+👀 I’m interested in ...python.<br/>
+🌱 I’m currently working on web development in pyscript.<br/>
+📫 How to reach me ...gmail:nasrinbegump@gmail.com</h1>"""),append=False)
+
+@when("click", "#run")
+def fun(event):
+    display(HTML("""<br/><h1>Introduction</h1><p>PyScript allows you to create rich Python applications in the browser using HTML and Python code.<br/>The easiest way to get a PyScript development environment and hosting, is to use <a href="https://pyscript.com">pyscript.com</a>
+in your browser.</p>
+All PyScript applications need three things:
+<li>An index.html file that is served to your browser.</li>
+<li>pyscript.toml file where you specify your packages and files(default name is pyscript.toml but can be .toml file with any name)</li>
+<li>Python code (usually in a file called something like main.py) that defines how your application works.</li>
+Alternately just use index.html where inside py-config tag specify your packages and files,write your Python code inside script tag.
+Inside script tag if you specify your src="./main.py" config="./pyscript.toml" means you are going to write your python code in main.py and mention packages,files in pyscript.toml alternately just remove the src="./main.py" and write your code within script tags or just remove config="./pyscript.toml" when you don't need any packages for your code.
+Always follow the following order for ./pyscript.toml .
+<pre style="background-color:#f1f1f1;">
+<code onmousedown="return false" onselectstart="return false">
+"packages" = ["package-name"]
+[files]
+"example.txt" = "example.txt"
+</code>
+</pre>
+<h5>Simple example showing index.html,main.py,pyscript.toml specifying packages and files</h5>
+<h6>index.html</h6>
+<pre style="background-color:#f1f1f1;">
+<code onmousedown="return false" onselectstart="return false">
+&lt;!DOCTYPE html&gt;
+&lt;html lang="en"&gt;
+&lt;head&gt;
+&lt;title&gt;Yellow Cloud&lt;/title&gt;
+    &lt;meta charset="UTF-8"&gt;
+    &lt;meta name="viewport" content="width=device-width,initial-scale=1.0"&gt;
+    &lt;link rel="stylesheet" href="https://pyscript.net/releases/2024.7.1/core.css"&gt;
+    &lt;script type="module" src="https://pyscript.net/releases/2024.7.1/core.js"&gt;&lt;/script&gt;
+&lt;/head&gt;
+&lt;body&gt;
+  &lt;script type="py" src="./main.py" config="./pyscript.toml" &gt;&lt;/script&gt;
+&lt;/body&gt;
+&lt;/html&gt;
+</code>
+</pre>
+<h6>main.py</h6>
+<pre style="background-color:#f1f1f1;">
+<code onmousedown="return false" onselectstart="return false">
+import numpy as np
+from pyscript import display
+x = np.arange(15, dtype=np.int64).reshape(3, 5)
+x[1:, ::2] = -99
+display(x)
+</code>
+</pre>
+<h6>pyscript.toml</h6>
+<pre style="background-color:#f1f1f1;">
+<code onmousedown="return false" onselectstart="return false">
+name = "Yellow Cloud"
+packages=["numpy"]
+</code>
+</pre>
+<h5>Simple example showing index.html specifying packages and files</h5>
+<h6>index.html</h6>
+<pre style="background-color:#f1f1f1;">
+<code>
+&lt;!DOCTYPE html&gt;
+&lt;html lang="en"&gt;
+&lt;head&gt;
+&lt;title&gt;Yellow Cloud&lt;/title&gt;
+    &lt;meta charset="UTF-8"&gt;
+    &lt;meta name="viewport" content="width=device-width,initial-scale=1.0"&gt;
+    &lt;link rel="stylesheet" href="https://pyscript.net/releases/2024.8.1/core.css"&gt;
+    &lt;script type="module" src="https://pyscript.net/releases/2024.8.1/core.js"&gt;&lt;/script&gt;
+&lt;/head&gt;
+&lt;body&gt;
+    &lt;py-config&gt;
+        "packages" = ["numpy"]
+    &lt;/py-config&gt;
+&lt;script type="py" &gt;
+     import numpy as np
+     from pyscript import display
+     x = np.arange(15, dtype=np.int64).reshape(3, 5)
+     x[1:, ::2] = -99
+     display(x)
+&lt;/script&gt;
+&lt;/body&gt;
+&lt;/html&gt;
+</code>
+</pre>
+"""),append=False)
+
+
+@when("click", "#ex1")
+def click_handler(event):
+    from main import click_handler1
+    click_handler1()
+
+@when("click", "#ex2")
+def Example2(event):
+    from main1 import click_handler1
+    click_handler1()
+@when("click", "#ex3")
+def Example3(event):
+    from main2 import click_handler1
+    click_handler1()
+@when("click", "#ex4")
+def Example4(event):
+    from main3 import click_handler1
+    click_handler1()
+@when("click", "#ex5")
+def Example5(event):
+    from main4 import click_handler1
+    click_handler1()
+@when("click", "#ex6")
+def Example6(event):
+    from main5 import click_handler1
+    click_handler1()
+@when("click", "#ex7")
+def Example7(event):
+    from main6 import click_handler1
+    click_handler1()
+@when("click", "#ex8")
+def Example8(event):
+    from main7 import click_handler1
+    click_handler1()
+
+@when("click", "#ex9")
+def Example9(event):
+    from main8 import click_handler1
+    click_handler1()
+
+@when("click", "#ex10")
+def Example10(event):
+    from main9 import click_handler1
+    click_handler1()
+
+@when("click", "#ex11")
+def Example11(event):
+    from main11 import click_handler1
+    click_handler1()
+
+@when("click", "#ex12")
+def Example12(event):
+    from main12 import click_handler1
+    click_handler1()
+
+@when("click", "#ex13")
+def Example13(event):
+    from main13 import click_handler1
+    click_handler1()
+
+@when("click", "#ex14")
+def Example14(event):
+    from main14 import click_handler1
+    click_handler1()
+
+@when("click", "#ex15")
+def Example15(event):
+    from main15 import click_handler1
+    click_handler1()
+
+@when("click", "#ex16")
+def Example16(event):
+    from main16 import click_handler1
+    click_handler1()
+
+@when("click", "#ex17")
+def Example17(event):
+    from main17 import click_handler1
+    click_handler1()
+
+@when("click", "#ex18")
+def Example18(event):
+    from main18 import click_handler1
+    click_handler1()
+
+@when("click", "#ex19")
+def Example19(event):
+    from main19 import click_handler1
+    click_handler1()
+
+@when("click", "#ex20")
+def Example20(event):
+    from main20 import click_handler1
+    click_handler1()
+    </script>
+     <script src="./main.js">
+
+    </script>
+    </p>
+</body>
+</html>
